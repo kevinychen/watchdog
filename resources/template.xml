@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="action" mtime="$TIME" type="string">
+		<stringvalue>$DIR/watchdog.sh</stringvalue>
+	</entry>
+	<entry name="name" mtime="$TIME" type="string">
+		<stringvalue>Watchdog</stringvalue>
+	</entry>
+	<entry name="binding" mtime="$TIME" type="string">
+		<stringvalue>&lt;Primary&gt;&lt;Alt&gt;g</stringvalue>
+	</entry>
+</gconf>
