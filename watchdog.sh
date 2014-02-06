@@ -10,23 +10,27 @@ trap '' 2
 gcc $DIR/listen.c -o $DIR/listen -lX11
 $DIR/listen
 
+# turn up sound
+amixer set Master 100%
+
 # take snapshot from webcam; requires mplayer
 mplayer -vo png -frames 1 tv://
+wait
 mv 00000001.png $DIR/snapshot.png
 
+# concatenate webcam snapshot with trespasser image; requires imagemagick
+convert $DIR/trespasser_sign.jpg $DIR/snapshot.png -append $DIR/combined.jpg
+
+# play "You shall not pass!"
+mpg123 $DIR/shall_not_pass.mp3 &
+
 # show signs; requires gthumb
-gthumb --fullscreen $DIR/trespasser_sign.jpg &
-sleep 1
-gthumb --fullscreen $DIR/snapshot.png &
+gthumb --fullscreen $DIR/combined.jpg &
 sleep 2
-
-# play evil laugh; requires mpg123
-amixer set Master 100%
-mpg123 $DIR/evil_laugh.mp3 &
-
-# allow Ctrl+C again
-trap 2
 
 # lock the computer
 gnome-screensaver-command --lock
+
+# allow Ctrl+C again
+trap 2
 

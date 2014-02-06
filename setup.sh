@@ -20,6 +20,12 @@ do
     fi
 done
 
+# Check for imagemagick
+if ! hash convert 2> /dev/null
+then
+    apt-get install imagemagick
+fi
+
 # Check for libx11 libraries
 if ! locate libx11-dev > /dev/null
 then
