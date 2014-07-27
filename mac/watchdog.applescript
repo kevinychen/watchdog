@@ -2,9 +2,11 @@
 delay 1
 
 try
+    display notification "Watchdog: guarding"
     do shell script "/Users/kchen/Code/watchdog/mac/watchdog.sh"
+    display notification "Watchdog: stopped"
 on error
-    set Volume 2
+    set Volume 10
 
     tell application "Play Sound"
         set soundFile to "Macintosh HD:Users:kchen:Code:watchdog:resources:shall_not_pass.mp3" as alias
@@ -13,6 +15,8 @@ on error
         tell application "System Events"
             set ss to screen saver "iLifeSlideshows"
         end tell
+
+        delay 1
 
         tell application "ScreenSaverEngine"
             activate
