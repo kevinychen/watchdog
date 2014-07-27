@@ -11,7 +11,7 @@ then
 fi
 
 # Take a picture with the webcam
-/usr/local/bin/imagesnap -w 1 snaps/snap.png
+/usr/local/bin/imagesnap -w 1 snaps/snap.jpg
 
 exit 1
 

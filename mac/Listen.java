@@ -15,7 +15,7 @@ public class Listen implements NativeKeyListener, NativeMouseInputListener, Nati
 	}
 
 	public void nativeKeyPressed(NativeKeyEvent e) {
-		if (e.getKeyCode() == 88) { System.out.println("OK"); System.exit(0); }
+		if (e.getKeyCode() == 88) System.exit(0);
 		process(e);
 	}
 
@@ -51,7 +51,6 @@ public class Listen implements NativeKeyListener, NativeMouseInputListener, Nati
 	}
 
 	private void process(NativeInputEvent e) {
-System.out.println(e);
 		System.exit(1);
 	}
 }
